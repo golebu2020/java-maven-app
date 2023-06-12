@@ -1,9 +1,10 @@
 BRANCH_NAME='dev'
 pipeline {
     agent any
-    environment{
-        NEW_VERSION='1.3.0'
-    }
+    // environment{
+    //     NEW_VERSION='1.3.0'
+    //     SERVER_CREDENTIALS = credentials('server-credentials')
+    // }
     stages {
         stage("build"){
             steps{
@@ -25,6 +26,14 @@ pipeline {
         stage("deploy"){
             steps{
                 echo "Deploying the application"
+                //echo "Deploying with ${SERVER_CREDENTIALS}"
+                //sh "${SERVER_CREDENTIALS}"
+                // withCredentials([
+                //     usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PWD)
+                // ]){
+                //     sh "Some scripts ${USER} ${PWD}"
+
+                // }
               
             }
         }
