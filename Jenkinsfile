@@ -8,7 +8,7 @@ pipeline {
         stage("build"){
             steps{
                 echo "Building the application"
-                ehco "The new version is: $NEW_VERSION"
+                echo "The new version is: $NEW_VERSION"
             }
         }
         stage("test"){
