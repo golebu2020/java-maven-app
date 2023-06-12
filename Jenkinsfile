@@ -10,7 +10,7 @@ pipeline {
             steps{
                 echo "Building the application"
                 echo "The new version is: $NEW_VERSION"
-                echo "$SERVER_CREDENTIALS"
+               
             }
         }
         stage("test"){
@@ -26,6 +26,8 @@ pipeline {
         stage("deploy"){
             steps{
                 echo "Deploying the application"
+                echo "Deploying with ${SERVER_CREDENTIALS}"
+                sh "${SERVER_CREDENTIALS}"
             }
         }
     }
