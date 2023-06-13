@@ -19,7 +19,7 @@ pipeline{
                     withCredentials(usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')){
                         sh 'docker build --tag golebu2020/maven-repo:1.0 .'
                         sh "echo $PASS | docker login -u $USER --password-stdin"
-                        Sh 'docker push golebu2020/maven-repo:1.0'
+                        sh 'docker push golebu2020/maven-repo:1.0'
                     }
                 }
             }
