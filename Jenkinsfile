@@ -1,28 +1,20 @@
-def gv
 pipeline{
     agent any
     stages{
-        stage("init"){
+        stage("build jar"){
             steps{
-                sh "mvn --version"
-            }
-        }
-        stage("build"){
-            steps{
-                sh "mvn package"
-            }
-        }
-
-        stage("test"){
-            steps{
-                echo "testing app.."
+                script{
+                    echo "building the application..."
+                    sh "mvn package"
+                }
             }
         }
 
         stage("deploy"){
-
             steps{
-                echo "deploying app.."
+                script{
+                    echo "deploying the application"
+                }
             }
         }
     }
