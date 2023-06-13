@@ -10,7 +10,7 @@ pipeline{
         }
         stage("build"){
             steps{
-                echo "building app.."
+                sh "mvn package"
             }
         }
 
