@@ -1,5 +1,6 @@
 def buildApp(){
-    echo "building application..."
+    echo "building the application..."
+
 }
 return this
 
@@ -12,3 +13,4 @@ def deployApp(){
     echo "deploying application..."
 }
 return this
+
