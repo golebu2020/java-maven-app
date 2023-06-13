@@ -1,5 +1,10 @@
 def gv
 pipeline{
+    parameters{
+        choice(name: 'SELECT-TYPE', choices: ['dev', 'stage', 'prod'], description: '')
+        booleanParam(name: 'executeDeploy', defaultValue:true, description: '')
+    }
+
     agent any
     stages{
          stage("init"){
@@ -28,6 +33,11 @@ pipeline{
         }
 
         stage("deploy"){
+            when{
+                expression{
+                    params.executeDeploy == true
+                }
+            }
             steps{
                 script{
                     gv.deployApp()
@@ -39,6 +49,7 @@ pipeline{
     post{
         always{
             echo "This code will always be run"
+            echo "The choice is ${params.SELECT-TYPE}"
         }
 
         success{
