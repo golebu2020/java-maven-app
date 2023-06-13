@@ -19,12 +19,13 @@ pipeline{
   
             }
         }
+            
+        stage("deploy"){
             when{
                 expression{
                     BRANCH_NAME == 'master'
                 }
             }
-        stage("deploy"){
             steps{
        
             }
