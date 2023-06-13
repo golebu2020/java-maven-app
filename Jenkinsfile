@@ -1,7 +1,7 @@
 def gv
 pipeline{
     parameters{
-        choice(name: 'SELECT-TYPE', choices: ['dev', 'stage', 'prod'], description: '')
+        choice(name: 'SELECT', choices: ['dev', 'stage', 'prod'], description: '')
         booleanParam(name: 'executeDeploy', defaultValue:true, description: '')
     }
 
@@ -49,7 +49,7 @@ pipeline{
     post{
         always{
             echo "This code will always be run"
-            echo "The choice is ${params.SELECT-TYPE}"
+            echo "The choice is ${params.SELECT}"
         }
 
         success{
