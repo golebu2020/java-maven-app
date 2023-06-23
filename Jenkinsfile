@@ -6,7 +6,8 @@ pipeline{
         stage ("increment build"){
             steps{
                 script{
-                    echo "increment"
+                    sh "mvn build-helper:parseVersion versions:set \
+                    -DnewVersion=\\\${parseVersion.majorVersion}.\\\${parseVersion.minorVersion}.\\\${parseVersion.nextIncrementVersion} versions:commit"
                 }
             }
         }
@@ -14,7 +15,7 @@ pipeline{
         stage ("build artifact"){
             steps{
                 script{
-                    echo "increment"
+                    echo "mvn clean package"
                 }
             }
         }
