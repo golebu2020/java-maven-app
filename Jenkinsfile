@@ -50,7 +50,7 @@ pipeline{
                      withCredentials([usernamePassword(credentialsId: 'github-credentials', usernameVariable: 'USR', passwordVariable: 'PASS')]){
                         sh "git status"
                         sh "git branch"
-                        sh "git config --all"
+                        sh "git config --list"
 
                         // sh "git remote set-url origin https://${USR}:${PASS}@github.com/golebu2020/java-maven-app.git"
                         // sh "git add ."
