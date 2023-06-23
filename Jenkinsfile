@@ -27,7 +27,7 @@ pipeline{
         stage ("build image & push"){
             steps{
                 script{
-                    echo "Increm"
+                    echo "building image and pushing image..."
                 }
             }
         }
@@ -35,7 +35,7 @@ pipeline{
         stage ("deploy"){
             steps{
                 script{
-                    echo "increment"
+                    echo "deploying image..."
                 }
             }
         }
