@@ -40,7 +40,7 @@ pipeline{
         stage ("deploy"){
             steps{
                 script{
-                    echo "deploying image..."
+                    echo "deploying imagedd..."
                 }
             }
         }
