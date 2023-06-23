@@ -27,7 +27,7 @@ pipeline{
         stage ("build image & push"){
             steps{
                 script{
-                    echo "building image and pushing image..."
+                    echo "building images and pushing image..."
                 }
             }
         }
