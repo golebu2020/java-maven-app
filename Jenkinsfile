@@ -27,7 +27,9 @@ pipeline{
         stage ("build image & push"){
             steps{
                 script{
-                    echo "building images and pushing image..."
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'USR', passwordVariable: 'PASS')]){
+                        echo "${USR} -- ${PASS}"
+                    }
                 }
             }
         }
