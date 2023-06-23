@@ -32,7 +32,7 @@ pipeline{
                         echo "${USR} -- ${PASS}"
                         sh "echo ${PASS} | docker login -u ${USR} --password-stdin"
                         sh "docker push golebu2020/maven-repo:${IMAGE_NAME}"
-                    }
+                    } 
                 }
             }
         }
@@ -44,5 +44,23 @@ pipeline{
                 }
             }
         }
+        stage ("commit version update"){
+            steps{
+                script{
+                     withCredentials([usernamePassword(credentialsId: 'github-credentials', usernameVariable: 'USR', passwordVariable: 'PASS')]){
+                        sh "git status"
+                        sh "git branch"
+                        sh "git config --all"
+
+                        // sh "git remote set-url origin https://${USR}:${PASS}@github.com/golebu2020/java-maven-app.git"
+                        // sh "git add ."
+                        // sh "git commit -am 'version bump'"
+                        // sh "git push origin HEAD:jenkins-jobs"
+                    } 
+                }
+            }
+        }
+
+
     }
 }
