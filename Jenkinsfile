@@ -54,13 +54,10 @@ pipeline{
                         sh "git branch"
                         sh "git config --list"
 
-                //   http://46.101.168.73:8080/
-                //   https://github.com/golebu2020/java-maven-app.git
-
                         sh "git remote set-url origin https://${USR}:${PASS}@github.com/golebu2020/java-maven-app.git"
                         sh "git add ."
-                        sh "git commit -am 'version bump'"
-                        sh "git push origin HEAD:jenkins-jobs"
+                        sh "git commit -m 'version bump'"
+                        sh "git push origin master"
                     } 
                 }
             }
