@@ -1,31 +1,38 @@
 #!/usr/bin/env groovy
 
 pipeline{
-        agent any
-        stages{
-            stage("increment build version"){
-                steps{
-                    script{
-                       sh "incrementer"
-                    }
-                }
-            }
-
-            stage("build and push"){
-                steps{
-                    script{
-                        sh "build and push"
-                    }
-                }
-            }
-
-            stage("deploy"){
-                steps{
-                    script{
-                        sh "deploying..."
-                    }
+    agent any
+    stages{
+        stage ("increment build"){
+            steps{
+                script{
+                    echo "increment"
                 }
             }
         }
-    
+        
+        stage ("build artifact"){
+            steps{
+                script{
+                    echo "increment"
+                }
+            }
+        }
+
+        stage ("build image & push"){
+            steps{
+                script{
+                    echo "Increment"
+                }
+            }
+        }
+
+        stage ("deploy"){
+            steps{
+                script{
+                    echo "increment"
+                }
+            }
+        }
+    }
 }
