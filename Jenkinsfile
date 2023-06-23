@@ -1,45 +1,29 @@
 pipeline{
-    agent any
-    stages{
-        stage("test"){
-            steps{
-                script{
-                    echo "Testing the applicaiton"
-                    echo "Executing the pipeline for branch $BRANCH_NAME"
-                }
-                
-            }
-           
-        }
+    agent any{
+        stages{
+            stage("increment"){
+                steps{
+                    script{
 
-        stage("build"){
-            when{
-                expression{
-                    BRANCH_NAME == 'master'
+                    }
                 }
             }
-            steps{
-                script{
-                    echo "Building the application..."
-                }
-  
-            }
-        }
-            
-        stage("deploy"){
-            when{
-                expression{
-                    BRANCH_NAME == 'master'
-                }
-            }
-            steps{
-                script{
-                    echo "Deploying the application..."
-                }
-       
-            }
-        }
 
+            stage("build and push"){
+                steps{
+                    script{
+                        
+                    }
+                }
+            }
+
+            stage("deploy"){
+                steps{
+                    script{
+                        
+                    }
+                }
+            }
+        }
     }
-    
 }
