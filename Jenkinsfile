@@ -19,7 +19,7 @@ pipeline{
         stage ("build artifact"){
             steps{
                 script{
-                    echo "mvn clean package"
+                    sh "mvn clean package"
                 }
             }
         }
