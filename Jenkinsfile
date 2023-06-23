@@ -1,10 +1,12 @@
+#!/usr/bin/env groovy
+
 pipeline{
     agent any{
         stages{
-            stage("increment"){
+            stage("increment build version"){
                 steps{
                     script{
-
+                       sh "incrementer"
                     }
                 }
             }
@@ -12,7 +14,7 @@ pipeline{
             stage("build and push"){
                 steps{
                     script{
-                        
+                        sh "build and push"
                     }
                 }
             }
@@ -20,7 +22,7 @@ pipeline{
             stage("deploy"){
                 steps{
                     script{
-                        
+                        sh "deploying..."
                     }
                 }
             }
