@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 pipeline{
-    agent any{
+        agent any
         stages{
             stage("increment build version"){
                 steps{
@@ -27,5 +27,5 @@ pipeline{
                 }
             }
         }
-    }
+    
 }
