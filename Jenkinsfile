@@ -27,8 +27,11 @@ pipeline{
         stage ("build image & push"){
             steps{
                 script{
+                    sh "docker build --tag golebu2020/maven-repo:${IMAGE_NAME} ."
                     withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'USR', passwordVariable: 'PASS')]){
                         echo "${USR} -- ${PASS}"
+                        sh "echo ${PASS} | docker login -u ${USR} --password-stdin"
+                        sh "docker push golebu2020/maven-repo:${IMAGE_NAME}"
                     }
                 }
             }
