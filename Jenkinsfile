@@ -50,22 +50,25 @@ pipeline{
         stage ("commit version update"){
             steps{
                 script{
+                    sh 'git add .'
+                    sh 'git commit -m "Jenkins build"'
+                    sh 'git push origin jenkins-jobs'
 
-                     withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    //  withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
         
-                        // sh "git config --global user.email 'cgolebu@gmail.com'"
-                        // sh "git config --global user.name 'chinedu'"
-                        sh "git status"
-                        sh "git config --list"
-                        sh "git branch"
+                    //     // sh "git config --global user.email 'cgolebu@gmail.com'"
+                    //     // sh "git config --global user.name 'chinedu'"
+                    //     sh "git status"
+                    //     sh "git config --list"
+                    //     sh "git branch"
 
-                        sh "git add ."
-                        sh "git commit -am 'modified Jenkinsfile'"
-                        sh "git push origin https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/golebu2020/java-maven-app.git HEAD:jenkins-jobs"
-                        // sh "git push origin HEAD:jenkins-jobs"
+                    //     sh "git add ."
+                    //     sh "git commit -am 'modified Jenkinsfile'"
+                    //     sh "git push origin https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/golebu2020/java-maven-app.git HEAD:jenkins-jobs"
+                    //     // sh "git push origin HEAD:jenkins-jobs"
 
 
-                     }
+                    //  }
                 }
             }
         }
