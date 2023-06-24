@@ -52,7 +52,7 @@ pipeline{
                 script{
                     sh 'git add .'
                     sh 'git commit -m "Jenkins build"'
-                    sh 'git push origin HEAD:jenkins-jobs'
+                    sh 'git push origin https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/golebu2020/java-maven-app.git HEAD:jenkins-jobs'
 
                     //  withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
         
