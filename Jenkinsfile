@@ -50,28 +50,22 @@ pipeline{
         stage ("commit version update"){
             steps{
                 script{
-                    git credentialsId: 'github-credentials', url: 'https://github.com/golebu2020/java-maven-app.git'
-                    gitAdd all: true
-                    gitCommit branch: 'master', message: 'Modify Jenkinsfile'
-                    sh "git push origin master"
 
+                     withCredentials([usernamePassword(credentialsId: 
+                     'github-credentials', usernameVariable: 'USR', 
+                     passwordVariable: 'PASS')]){
+                        sh "git config --global user.email 'jenkins@example.com'"
+                        sh "git config --global user.name 'Jenkins'"
+                        sh "git status"
+                        sh "git branch"
+                        sh "git config --list"
 
-
-                    //  withCredentials([usernamePassword(credentialsId: 
-                    //  'github-credentials', usernameVariable: 'USR', 
-                    //  passwordVariable: 'PASS')]){
-                    //     sh "git config --global user.email 'jenkins@example.com'"
-                    //     sh "git config --global user.name 'Jenkins'"
-                    //     sh "git status"
-                    //     sh "git branch"
-                    //     sh "git config --list"
-
-                    //     sh "git remote set-url origin https://${USR}:${PASS}@github.com/golebu2020/java-maven-app.git"
-                    //     sh "git add ."
-                    //     sh "git commit -m 'version bump'"
-                    //     sh "git push origin master"
+                        sh "git remote set-url origin https://${USR}:${PASS}@github.com/golebu2020/java-maven-app.git"
+                        sh "git add ."
+                        sh "git commit -m 'version bump'"
+                        sh "git push origin master"
                            
-                    // } 
+                    } 
                 }
             }
         }
