@@ -53,8 +53,7 @@ pipeline{
                     git credentialsId: 'github-credentials', url: 'https://github.com/golebu2020/java-maven-app.git'
                     gitAdd all: true
                     gitCommit branch: 'master', message: 'Modify Jenkinsfile'
-                    gitPush branch: 'master'
-
+                    sh "git push origin master"
 
 
 
