@@ -61,7 +61,7 @@ pipeline{
 
                         sh "git add ."
                         sh "git commit -am 'modified Jenkinsfile'"
-                        sh "git remote set-url origin https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/golebu2020/java-maven-app.git"
+                        sh "git remote add https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/golebu2020/java-maven-app.git"
                         sh "git push --set-upstream origin HEAD:jenkins-jobs"
 
 
