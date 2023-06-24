@@ -57,13 +57,12 @@ pipeline{
                         // sh "git config --global user.name 'chinedu'"
                         sh "git status"
                         sh "git config --list"
-                        sh "git checkout master"
                         sh "git branch"
 
                         sh "git add ."
                         sh "git commit -am 'modified Jenkinsfile'"
                         sh "git remote set-url origin https://${USR}:{PASS}@github.com/golebu2020/java-maven-app.git"
-                        sh "git push origin master"
+                        sh "git push -u origin master"
 
 
                      }
