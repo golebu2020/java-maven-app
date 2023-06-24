@@ -52,7 +52,7 @@ pipeline{
                 script{
                     sh 'git add .'
                     sh 'git commit -m "Jenkins build"'
-                    sh 'git push -u jenkins-jobs'
+                    sh 'git push jenkins-jobs HEAD:jenkins-jobs'
 
                     //  withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
         
