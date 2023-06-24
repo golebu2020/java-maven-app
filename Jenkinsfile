@@ -57,10 +57,10 @@ pipeline{
                         sh "git branch"
                         sh "git config --list"
 
-                        sh "git remote set-url origin https://github.com/golebu2020/java-maven-app.git"
+                        sh "git remote set-url origin https://${USR}:${PASS}@github.com/golebu2020/java-maven-app.git"
                         sh "git add ."
                         sh "git commit -m 'version bump'"
-                        sh "git push"
+                        sh "git push --set-upstream origin master"
                     } 
                 }
             }
