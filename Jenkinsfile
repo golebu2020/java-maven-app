@@ -63,7 +63,7 @@ pipeline{
                         sh "git add ."
                         sh "git commit -am 'modified Jenkinsfile'"
                         sh "git remote set-url origin https://${USR}:{PASS}@github.com/golebu2020/java-maven-app.git"
-                        SH "git push origin master"
+                        sh "git push origin master"
 
 
                      }
