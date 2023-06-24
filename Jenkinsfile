@@ -51,7 +51,6 @@ pipeline{
             steps{
                 script{
                      withCredentials([usernamePassword(credentialsId: 'github-credentials', usernameVariable: 'USR', passwordVariable: 'PASS')]){
-                       try {
                                 sh "git config --global user.email 'jenkins@example.com'"
                                 sh "git config --global user.name 'Jenkins'"
                                 sh "git status"
@@ -62,12 +61,7 @@ pipeline{
                                 sh "git add ."
                                 sh "git commit -m 'version bump'"
                                 sh "git push origin master"
-                            }catch (Exception e) {
-                                // Add error handling and debugging information
-                                echo "Error occurred during the Git commands:"
-                                echo "${e.getMessage()}"
-                                error("Failed to execute Git commands.")
-                        }
+                           
                     } 
                 }
             }
