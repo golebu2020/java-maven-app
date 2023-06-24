@@ -54,7 +54,7 @@ pipeline{
                      withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         sh ("git add .")
                         sh ("git commit -am 'modified Jenkinsfile'")
-                        sh ("git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/golebu2020/java-maven-app.git HEAD:master")
+                        sh ("git push -u https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/golebu2020/java-maven-app.git HEAD:master")
                      }
                 }
             }
