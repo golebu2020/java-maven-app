@@ -57,7 +57,6 @@ pipeline{
                         // sh "git config --global user.name 'chinedu'"
                         sh "git status"
                         sh "git config --list"
-                        sh "git config --global --unset http.proxy"
                         sh "git branch"
 
                         sh "git add ."
