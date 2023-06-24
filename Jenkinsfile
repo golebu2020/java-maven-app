@@ -52,9 +52,13 @@ pipeline{
                 script{
 
                      withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                        sh ("git add .")
-                        sh ("git commit -am 'modified Jenkinsfile'")
-                        sh ("git push -u https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/golebu2020/java-maven-app.git HEAD:master")
+        
+                        sh "git config --global user.email 'cgolebu@gmail.com'"
+                        sh "git config --global user.name 'chinedu'"
+                        sh "git status"
+                        sh "git config --list"
+                        sh "git branch"
+
                      }
                 }
             }
