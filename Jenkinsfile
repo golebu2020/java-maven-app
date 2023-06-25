@@ -63,13 +63,13 @@ pipeline{
                         sh 'echo "Password length: ${#PASS}"'
 
 
-                        sh "git remote set-url origin git@github.com:golebu2020/java-maven-app.git"  
-                        sh 'git add .'  
-                        sh "git remote -v"  
-                        sh 'git commit -m "ci: version bump"'  
+                        // sh "git remote set-url origin git@github.com:golebu2020/java-maven-app.git"  
+                        // sh 'git add .'  
+                        // sh "git remote -v"  
+                        // sh 'git commit -m "ci: version bump"'  
 
-                        sh 'GIT_SSH_COMMAND="ssh -i $keyfile"'  
-                        sh 'git push origin HEAD:master' //need to specify the branch name here. Because  
+                        // // sh 'GIT_SSH_COMMAND="ssh -i $keyfile"'  
+                        // sh 'git push origin HEAD:master' //need to specify the branch name here. Because  
                        
 
 
