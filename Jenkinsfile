@@ -51,7 +51,7 @@ pipeline{
             steps{
                 script{
 
-                     withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                     withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
         
                         // sh "git config --global user.email 'cgolebu@gmail.com'"
                         // sh "git config --global user.name 'chinedu'"
@@ -59,10 +59,13 @@ pipeline{
                         sh "git config --list"
                         sh "git branch"
 
-                        sh "git remote set-url origin https://${GIT_USERNAME}:${GIT_PASSWORD}github.com/golebu2020/java-maven-app.git"
-                        sh "git add ."
-                        sh 'git commit -m "ci: version bump"'
-                        sh "git push origin HEAD:jenkins-jobs"
+                        echo 'echo "Username length: ${#USER}" '
+                        echo 'echo "Passwords length: ${#PASS}" '
+
+                        // sh "git remote set-url origin https://${GIT_USERNAME}:${GIT_PASSWORD}github.com/golebu2020/java-maven-app.git"
+                        // sh "git add ."
+                        // sh 'git commit -m "ci: version bump"'
+                        // sh "git push origin HEAD:jenkins-jobs"
 
 
                      }
