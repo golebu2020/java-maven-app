@@ -30,12 +30,13 @@ pipeline{
         stage ("build image & push"){
             steps{
                 script{
-                    sh "docker build --tag golebu2020/maven-repo:${IMAGE_NAME} ."
-                    withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'USR', passwordVariable: 'PASS')]){
-                        echo "${USR} -- ${PASS}"
-                        sh "echo ${PASS} | docker login -u ${USR} --password-stdin"
-                        sh "docker push golebu2020/maven-repo:${IMAGE_NAME}"
-                    } 
+                    echo "build image & push"
+                    // sh "docker build --tag golebu2020/maven-repo:${IMAGE_NAME} ."
+                    // withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'USR', passwordVariable: 'PASS')]){
+                    //     echo "${USR} -- ${PASS}"
+                    //     sh "echo ${PASS} | docker login -u ${USR} --password-stdin"
+                    //     sh "docker push golebu2020/maven-repo:${IMAGE_NAME}"
+                    // } 
                 }
             }
         }
@@ -50,28 +51,29 @@ pipeline{
         stage ("commit version update"){
             steps{
                 script{
-
-                     withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                    
+                    echo "commit version update"
+                    //  withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
         
-                        // sh "git config --global user.email 'cgolebu@gmail.com'"
-                        // sh "git config --global user.name 'chinedu'"
-                        sh "git status"
-                        sh "git config --list"
-                        sh "git branch"
+                    //     // sh "git config --global user.email 'cgolebu@gmail.com'"
+                    //     // sh "git config --global user.name 'chinedu'"
+                    //     sh "git status"
+                    //     sh "git config --list"
+                    //     sh "git branch"
 
-                        sh 'echo "Username length: ${#USER}"'
-                        sh 'echo "Password length: ${#PASS}"'
-                        // sh ''
-                        // sh "touch chined.txt"
-                        sh '''
-                            if [ "$(ls -A $/var/jenkins_home/workspace/java-maven-job)" ]; 
-                            then
-                                echo "huzzah"
-                            else 
-                                echo "has no files"
-                            fi
+                    //     sh 'echo "Username length: ${#USER}"'
+                    //     sh 'echo "Password length: ${#PASS}"'
+                    //     // sh ''
+                    //     // sh "touch chined.txt"
+                    //     sh '''
+                    //         if [ "$(ls -A $/var/jenkins_home/workspace/java-maven-job)" ]; 
+                    //         then
+                    //             echo "huzzah"
+                    //         else 
+                    //             echo "has no files"
+                    //         fi
                                                 
-                        '''
+                    //     '''
 
                         // env.PAT = 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
                         // sh "git remote set-url origin git@github.com:golebu2020/java-maven-app.git"  
@@ -87,7 +89,7 @@ pipeline{
                        
 
 
-                     }
+                    //  }
                 }
             }
         }
