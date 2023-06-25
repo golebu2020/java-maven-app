@@ -59,8 +59,9 @@ pipeline{
                         sh "git config --list"
                         sh "git branch"
 
-                        echo 'echo "Username length: ${#USER}" '
-                        echo 'echo "Passwords length: ${#PASS}" '
+                        sh 'echo "Username length: ${#USER}"'
+                        sh 'echo "Password length: ${#PASS}"'
+
 
                         // sh "git remote set-url origin https://${GIT_USERNAME}:${GIT_PASSWORD}github.com/golebu2020/java-maven-app.git"
                         // sh "git add ."
