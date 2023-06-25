@@ -64,12 +64,11 @@ pipeline{
                         // sh ''
                         // sh "touch chined.txt"
                         sh '''
-                        if [ -n "$(find "/var/jenkins_home/workspace/java-maven-job " -prune -empty)" ]
-                        then
-                            echo "empty (directory or file)"
-                        else
-                            echo "contains files (or does not exist)"
-                        fi
+                            shopt -s nullglob dotglob    
+                            files=(/var/jenkins_home/workspace/java-maven-job)
+                            if [ ${#files[@]} -gt 0 ]; 
+                            then echo "huzzah"; 
+                            fi
                                                 
                         '''
 
