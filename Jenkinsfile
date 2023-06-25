@@ -9,12 +9,13 @@ pipeline{
         stage ("increment build"){
             steps{
                 script{
-                    sh "mvn build-helper:parse-version versions:set \
-                    -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion} versions:commit"
+                    echo "Increment build"
+                    // sh "mvn build-helper:parse-version versions:set \
+                    // -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion} versions:commit"
 
-                    def matcher = readFile('pom.xml') =~ '<version>(.+)</version>'
-                    def version = matcher[0][1]
-                    env.IMAGE_NAME = "$version-$BUILD_NUMBER"
+                    // def matcher = readFile('pom.xml') =~ '<version>(.+)</version>'
+                    // def version = matcher[0][1]
+                    // env.IMAGE_NAME = "$version-$BUILD_NUMBER"
                 }
             }
         }
@@ -22,7 +23,8 @@ pipeline{
         stage ("build artifact"){
             steps{
                 script{
-                    sh "mvn clean package"
+                    echo "build artifact"
+                    // sh "mvn clean package"
                 }
             }
         }
