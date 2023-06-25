@@ -61,7 +61,17 @@ pipeline{
 
                         sh 'echo "Username length: ${#USER}"'
                         sh 'echo "Password length: ${#PASS}"'
-                        sh "touch chined.txt"
+                        // sh ''
+                        // sh "touch chined.txt"
+                        sh '''
+                        if [ -n "$(find "/var/jenkins_home/workspace/java-maven-job " -prune -empty)" ]
+                        then
+                            echo "empty (directory or file)"
+                        else
+                            echo "contains files (or does not exist)"
+                        fi
+                                                
+                        '''
 
                         // env.PAT = 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
                         // sh "git remote set-url origin git@github.com:golebu2020/java-maven-app.git"  
