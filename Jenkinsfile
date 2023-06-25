@@ -64,10 +64,11 @@ pipeline{
                         // sh ''
                         // sh "touch chined.txt"
                         sh '''
-                            shopt -s nullglob dotglob    
-                            files=(/var/jenkins_home/workspace/java-maven-job)
-                            if [ ${#files[@]} -gt 0 ]; 
-                            then echo "huzzah"; 
+                            if [ "$(ls -A $/var/jenkins_home/workspace/java-maven-job)" ]; 
+                            then
+                                echo "huzzah"
+                            else 
+                                echo "has no files"
                             fi
                                                 
                         '''
