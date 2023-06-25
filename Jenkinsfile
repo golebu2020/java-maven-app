@@ -59,10 +59,10 @@ pipeline{
                         sh "git config --list"
                         sh "git branch"
 
+                        sh "git remote set-url origin https://${GIT_USERNAME}:${GIT_PASSWORD}github.com/golebu2020/java-maven-app.git"
                         sh "git add ."
-                        sh "git commit -am 'modified Jenkinsfile'"
-                        sh "git remote set-url origin https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/golebu2020/java-maven-app.git"
-                        sh "git push -u origin master"
+                        sh 'git commit -m "ci: version bump"'
+                        sh "git push origin HEAD:jenkins-jobs"
 
 
                      }
