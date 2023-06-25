@@ -68,7 +68,7 @@ pipeline{
                         sh "git remote -v"  
                         sh 'git commit -m "ci: version bump"'  
 
-                        // sh 'GIT_SSH_COMMAND="ssh -i $keyfile"'  
+                        sh 'GIT_SSH_COMMAND="ssh -i $keyfile"'  
                         sh 'git push origin HEAD:master' //need to specify the branch name here. Because  
                        
 
