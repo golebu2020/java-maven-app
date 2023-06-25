@@ -62,11 +62,12 @@ pipeline{
                         sh 'echo "Username length: ${#USER}"'
                         sh 'echo "Password length: ${#PASS}"'
 
-
-                        // sh "git remote set-url origin https://${GIT_USERNAME}:${GIT_PASSWORD}github.com/golebu2020/java-maven-app.git"
-                        // sh "git add ."
-                        // sh 'git commit -m "ci: version bump"'
-                        // sh "git push origin HEAD:master"
+                        // https://<username>:<password>@github.com/golebu2020/java-maven-app.git/
+                        
+                        sh "git remote set-url origin https://${USER}:${PASS}@github.com/golebu2020/java-maven-app.git"
+                        sh "git add ."
+                        sh 'git commit -m "ci: version bump"'
+                        sh "git push origin HEAD:master"
 
 
                      }
